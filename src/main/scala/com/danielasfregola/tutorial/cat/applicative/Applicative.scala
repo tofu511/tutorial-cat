@@ -11,6 +11,6 @@ trait Applicative[Box[_]] extends Functor[Box] {
   def ap[A, B](boxF: Box[A => B])(boxA: Box[A]): Box[B]
 
   // TODO - implement using pure and app
-  override def map[A, B](boxA: Box[A])(f: A => B): Box[B] = ???
+  override def map[A, B](boxA: Box[A])(f: A => B): Box[B] = ap(pure(f))(boxA)
 
 }
